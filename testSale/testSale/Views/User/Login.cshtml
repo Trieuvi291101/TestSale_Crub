@@ -1,0 +1,33 @@
+﻿@model testSale.Models.user
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<div class="table-bordered" >
+        <div class="card">
+            <div class="card-header table-bordered bg-success text-center text-danger">
+                <h3>Login</h3>
+            </div>
+            <div class="card-body table-bordered bg-success ">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                <div class="form-group">
+                    @Html.LabelFor(m => m.username)
+                        @Html.TextBoxFor(m => m.username, "", new { @class = "form-control", @placeholder = "username" })
+
+                </div>
+                <div class="form-group ">
+                    @Html.LabelFor(m => m.password)
+                        @Html.PasswordFor(m => m.password, new { @class = "form-control", @placeholder = "password" })
+                </div>
+                        <div class="form-group text-center">
+                            <input type="submit" name="submit" class="btn btn-primary " value="Login" />
+                        </div>
+                        }
+                    </div>
+        </div>
+</div>
+
+

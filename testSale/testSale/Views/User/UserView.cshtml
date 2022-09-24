@@ -1,0 +1,79 @@
+﻿@model IEnumerable<testSale.Models.user>
+
+@{
+    ViewBag.Title = "UserView";
+}
+<div>
+    <h2 class="text-danger text-center table-bordered bg-success">Users</h2>
+</div>
+<div class="table-bordered bg-success">
+    <p>
+        <h3 class="text-info">
+            @Html.ActionLink("Create User", "Create")
+        </h3>
+        @using (Html.BeginForm())
+        {
+        <p>
+            @Html.TextBox("SearchString") <input type="submit" value="Tìm kiếm" class="btn btn-danger" />
+        </p>
+    }
+        </p>
+        <table class="table table-hover bg-success">
+            <tr>
+                <th class="text-danger">
+                    First Name
+                </th>
+                <th class="text-danger">
+                    Last Name
+                </th>
+                <th class="text-danger">
+                    Email
+                </th>
+                <th class="text-danger">
+                    Phone Number
+                </th>
+                <th class="text-danger">
+                    Username
+                </th>
+                @*<th>
+                        Password
+                    </th>*@
+                <th class="text-danger">
+                    User Role
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.first_name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.last_name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.phone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.username)
+                    </td>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.password)
+                        </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.user_role)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+    </div>
